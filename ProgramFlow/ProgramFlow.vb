@@ -3,6 +3,7 @@ Option Strict On
 Module ProgramFlow
     Sub Main()
         Dim chumpChange As Integer
+        Dim userInput As String
 
         'assign 5 to chumpChange
         chumpChange = 5
@@ -20,9 +21,9 @@ Module ProgramFlow
             Console.WriteLine(chumpChange > 4)
         End If
 
+
         'new piece of code
         Console.WriteLine()
-
         'if anything evaluates to true all other evaluations are skipped
         If chumpChange > 6 Then
             Console.WriteLine(chumpChange > 6)
@@ -32,9 +33,9 @@ Module ProgramFlow
             Console.WriteLine(chumpChange > 4)
         End If
 
+
         'new piece of code
         Console.WriteLine()
-
         'assign -3 to chumpChange (chumpChange is now 2)
         chumpChange -= 3
 
@@ -48,6 +49,29 @@ Module ProgramFlow
         Else
             Console.WriteLine("How did you end up here?")
         End If
+
+
+        'new piece of code
+        Console.WriteLine()
+        Console.WriteLine("How old are you?")
+        userInput = Console.ReadLine()
+        chumpChange = CInt(userInput)
+        Select Case chumpChange
+            Case 0 To 3
+                Console.WriteLine($"{chumpChange} is less than 4")
+            Case 4 To 10
+                Console.WriteLine($"{chumpChange} is less than 11")
+            Case 11 To 64
+                Console.WriteLine($"{chumpChange} is less than 65")
+            Case 65 To 99
+                Console.WriteLine($"{chumpChange} is less than 100")
+            Case > 100
+                Console.WriteLine($"{chumpChange} is greater than 100")
+            Case Else
+                Console.WriteLine($"Whoops")
+        End Select
+
+
     End Sub
 
 End Module
