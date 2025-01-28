@@ -82,13 +82,14 @@ Module ProgramFlow
 
         Loop Until userInput = "q"
 
-
+        'Will run the code inside the loop at least once
         Do
             Console.WriteLine("Type something and press enter:")
             userInput = Console.ReadLine()
             Console.WriteLine($"In the Do Until Loop:")
         Loop Until userInput = "Q"
 
+        'Will only run the code inside the Do While loop when the condition is true
         Do While userInput = "Q"
             Console.WriteLine("Type something and press enter:")
             userInput = Console.ReadLine()
