@@ -1,5 +1,6 @@
 ﻿Option Explicit On
 Option Strict On
+Option Compare Text
 Module ProgramFlow
     Sub Main()
         Dim chumpChange As Integer
@@ -52,25 +53,34 @@ Module ProgramFlow
 
 
         'new piece of code
-        Console.WriteLine()
-        Console.WriteLine("How old are you?")
-        userInput = Console.ReadLine()
-        chumpChange = CInt(userInput)
-        Select Case chumpChange
-            Case 0 To 3
-                Console.WriteLine($"{chumpChange} is less than 4")
-            Case 4 To 10
-                Console.WriteLine($"{chumpChange} is less than 11")
-            Case 11 To 64
-                Console.WriteLine($"{chumpChange} is less than 65")
-            Case 65 To 99
-                Console.WriteLine($"{chumpChange} is less than 100")
-            Case > 100
-                Console.WriteLine($"{chumpChange} is greater than 100")
-            Case Else
-                Console.WriteLine($"Whoops")
-        End Select
+        Do
+            Console.WriteLine()
+            Console.WriteLine("How old are you?")
+            userInput = Console.ReadLine()
 
+            Try
+                chumpChange = CInt(userInput)
+                Select Case chumpChange
+                    Case 0 To 3
+                        Console.WriteLine($"You're {chumpChange} years old? How about we go look for your parents.")
+                    Case 4 To 10
+                        Console.WriteLine($"You're {chumpChange} years old? Sorry bubby, you're not old enough to ride.")
+                    Case 11 To 64
+                        Console.WriteLine($"You're {chumpChange} years old? Hope you enjoy the ride!")
+                    Case 65 To 99
+                        Console.WriteLine($"You're {chumpChange} years old? I just need you to sign this release form.")
+                    Case > 100
+                        Console.WriteLine($"You're {chumpChange} years old? I think you may be TOO old for this ride...")
+                    Case Else
+                        Console.WriteLine($"Whoops...")
+                End Select
+
+            Catch ex As Exception
+                Console.WriteLine($"You entered {userInput}.")
+                Console.WriteLine($"Please enter a number.")
+            End Try
+
+        Loop Until userInput = "Q"
 
     End Sub
 
