@@ -55,32 +55,45 @@ Module ProgramFlow
         'new piece of code
         Do
             Console.WriteLine()
-            Console.WriteLine("How old are you?")
+            Console.WriteLine("how old are you?")
             userInput = Console.ReadLine()
 
             Try
                 chumpChange = CInt(userInput)
                 Select Case chumpChange
                     Case 0 To 3
-                        Console.WriteLine($"You're {chumpChange} years old? How about we go look for your parents.")
+                        Console.WriteLine($"you're {chumpChange} years old? how about we go look for your parents.")
                     Case 4 To 10
-                        Console.WriteLine($"You're {chumpChange} years old? Sorry bubby, you're not old enough to ride.")
+                        Console.WriteLine($"you're {chumpChange} years old? sorry bubby, you're not old enough to ride.")
                     Case 11 To 64
-                        Console.WriteLine($"You're {chumpChange} years old? Hope you enjoy the ride!")
+                        Console.WriteLine($"you're {chumpChange} years old? hope you enjoy the ride!")
                     Case 65 To 99
-                        Console.WriteLine($"You're {chumpChange} years old? I just need you to sign this release form.")
+                        Console.WriteLine($"you're {chumpChange} years old? i just need you to sign this release form.")
                     Case > 100
-                        Console.WriteLine($"You're {chumpChange} years old? I think you may be TOO old for this ride...")
+                        Console.WriteLine($"you're {chumpChange} years old? i think you may be too old for this ride...")
                     Case Else
-                        Console.WriteLine($"Whoops...")
+                        Console.WriteLine($"whoops...")
                 End Select
 
             Catch ex As Exception
-                Console.WriteLine($"You entered {userInput}.")
-                Console.WriteLine($"Please enter a number.")
+                Console.WriteLine($"you entered {userInput}.")
+                Console.WriteLine($"please enter a number.")
             End Try
 
+        Loop Until userInput = "q"
+
+
+        Do
+            Console.WriteLine("Type something and press enter:")
+            userInput = Console.ReadLine()
+            Console.WriteLine($"In the Do Until Loop:")
         Loop Until userInput = "Q"
+
+        Do While userInput = "Q"
+            Console.WriteLine("Type something and press enter:")
+            userInput = Console.ReadLine()
+            Console.WriteLine($"In the Do While Loop: ")
+        Loop
 
     End Sub
 
